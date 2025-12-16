@@ -35,29 +35,22 @@ It doesn't just drive—it *perceives*. Equipped with Lidar and Camera fusion, i
 
 ### 1. Installation
 Clone the repo into your ROS 2 workspace:
-```bash
-cd ~/dev_ws/src
-git clone [https://github.com/sushishariq/my_bot.git](https://github.com/sushishariq/my_bot.git)
+`cd ~/dev_ws/src
+git clone [https://github.com/sushishariq/my_bot.git](https://github.com/sushishariq/my_bot.git)`
+
 Install dependencies and build:
-
-Bash
-
-cd ~/dev_ws
+`cd ~/dev_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
-source install/setup.bash
+source install/setup.bash`
 2. Launch Simulation 🌍
 Fire up the robot in the obstacle world with full physics and controllers:
-
-Bash
-
-ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstacles.world
+`ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstacles.world`
 3. Drive It 🚗
 Open a new terminal and take control:
+`ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped`
 
-Bash
 
-ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
 🗺️ Roadmap
 [x] Basic URDF & Xacro Description
 
