@@ -35,36 +35,43 @@ It doesn't just drive—it *perceives*. Equipped with Lidar and Camera fusion, i
 
 ### 1. Installation
 Clone the repo into your ROS 2 workspace:
-`cd ~/dev_ws/src
-git clone [https://github.com/sushishariq/my_bot.git](https://github.com/sushishariq/my_bot.git)`
+```bash
+cd ~/dev_ws/src
+git clone [https://github.com/sushishariq/my_bot.git](https://github.com/sushishariq/my_bot.git)
+```
 
 Install dependencies and build:
-`cd ~/dev_ws
+```bash
+cd ~/dev_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build --symlink-install
-source install/setup.bash`
-2. Launch Simulation 🌍
+source install/setup.bash
+```
+
+### 2. Launch Simulation 🌍
 Fire up the robot in the obstacle world with full physics and controllers:
-`ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstacles.world`
-3. Drive It 🚗
+```bash
+ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstacles.world
+```
+
+### 3. Drive It 🚗
 Open a new terminal and take control:
-`ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped`
+```bash
+ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=/diff_cont/cmd_vel_unstamped
+```
 
+## 🗺️ Roadmap
+- [x] Basic URDF & Xacro Description
+- [x] Gazebo Simulation Integration
+- [x] ROS 2 Control (Diff Drive & Joint States)
+- [ ] Add IMU for 3D Odometry (Robot Localization)
+- [ ] SLAM (Mapping) with `slam_toolbox`
+- [ ] Nav2 Autonomous Navigation
 
-🗺️ Roadmap
-[x] Basic URDF & Xacro Description
-
-[x] Gazebo Simulation Integration
-
-[x] ROS 2 Control (Diff Drive & Joint States)
-
-[ ] Add IMU for 3D Odometry (Robot Localization)
-
-[ ] SLAM (Mapping) with slam_toolbox
-
-[ ] Nav2 Autonomous Navigation
-
-🤝 Contributing
+## 🤝 Contributing
 Got a cool idea? Found a bug? Feel free to open an issue or submit a PR. Let's make this crawler even cuter (and smarter)!
 
-<div align="center"> <b>Built with ❤️ by Shariq</b> </div>
+---
+<div align="center">
+  <b>Built with ❤️ by Shariq</b>
+</div>
